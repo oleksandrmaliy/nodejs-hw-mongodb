@@ -2,11 +2,11 @@ import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import { env } from './src/utils/env.js';
 dotenv.config();
 // import { env } from '../.env';
 
-const PORT = Number(process.env.PORT);
+const PORT = Number(env('PORT', '3000'));
 
 // const PORT = 3000;
 
