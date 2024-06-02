@@ -6,8 +6,18 @@ import {
 
 const router = Router();
 
-router.get('/contacts', getAllContactsController);
+const ctrlWrapper = (controller) => {
+  return async (req, res, next) => {
+    try {
+      await controller(req, res, next);
+    } catch (err) {
+      next(err);
+    }
+  };
+};
 
-router.get('/contacts/:contactId', getContactByIdController);
+router.get('/contacts', ctrlWrapper(getAllContactsController));
+
+router.get('/contacts/:contactId', ctrlWrapper(getContactByIdController));
 
 export default router;
