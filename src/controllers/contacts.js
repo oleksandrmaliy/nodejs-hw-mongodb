@@ -6,14 +6,19 @@ import {
   deleteContact,
 } from '../services/contacts.js';
 import { parsePaginationParams } from '../utils/parsePaginationParams.js';
+import { parseSortParams } from '../utils/parseSortParams.js';
 
 import createHttpError from 'http-errors';
 
 export const getAllContactsController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
+  const { sortBy, sortOrder } = parseSortParams(req.query);
+
   const contacts = await getAllContacts({
     page,
     perPage,
+    sortBy,
+    sortOrder,
   });
 
   res.status(200).json({
@@ -22,6 +27,25 @@ export const getAllContactsController = async (req, res) => {
     data: contacts,
   });
 };
+
+// export const getStudentsController = async (req, res) => {
+//   const { page, perPage } = parsePaginationParams(req.query);
+
+//   const { sortBy, sortOrder } = parseSortParams(req.query);
+
+//   const students = await getAllStudents({
+//     page,
+//     perPage,
+//     sortBy,
+//     sortOrder,
+//   });
+
+//   res.json({
+//     status: 200,
+//     message: 'Successfully found students!',
+//     data: students,
+//   });
+// };
 
 export const getContactByIdController = async (req, res, next) => {
   const { contactId } = req.params;
