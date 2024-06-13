@@ -9,7 +9,7 @@ import {
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import {
-  createContactSchema,
+  postContactSchema,
   updateContactSchema,
 } from '../validation/contacts.js';
 
@@ -21,7 +21,7 @@ router.get('/contacts/:contactId', ctrlWrapper(getContactByIdController));
 
 router.post(
   '/contacts',
-  validateBody(createContactSchema),
+  validateBody(postContactSchema),
   ctrlWrapper(createContactController),
 );
 
