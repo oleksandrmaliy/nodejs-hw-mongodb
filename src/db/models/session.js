@@ -15,7 +15,6 @@ const sessionSchema = new Schema(
       type: String,
       required: true,
     },
-
     accessTokenValidUntil: {
       type: Date,
       required: true,
