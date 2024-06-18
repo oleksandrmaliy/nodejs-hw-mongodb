@@ -1,12 +1,5 @@
-// User з такими полями:
-
-// name - string, required
-// email - string, email, unique, required
-// password - string, required
-// createdAt - дата створення
-// updatedAt - дата оновлення
-
 import { model, Schema } from 'mongoose';
+import { ROLES } from '../../constants/index.js';
 
 const usersSchema = new Schema(
   {
@@ -23,6 +16,11 @@ const usersSchema = new Schema(
     password: {
       type: String,
       required: true,
+    },
+    role: {
+      type: String,
+      enum: [ROLES.USER],
+      default: ROLES.USER,
     },
   },
   {
