@@ -32,3 +32,7 @@ export const loginUserController = async (req, res) => {
     },
   });
 };
+
+export const refreshUserController = async (req, res) => {
+  const refresh = await refreshSession(req.body);
+};
