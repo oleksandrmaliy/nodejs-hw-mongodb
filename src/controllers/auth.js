@@ -1,3 +1,4 @@
+import createHttpError from 'http-errors';
 import { registerUser, loginUser, logoutUser } from '../services/auth.js';
 import { ONE_MONTH } from '../constants/index.js';
 import { refreshUsersSession } from '../services/auth.js';
@@ -34,6 +35,10 @@ export const loginUserController = async (req, res) => {
 };
 
 export const logoutUserController = async (req, res) => {
+  if (!req.cookies.sessionId) {
+    throw createHttpError(404, 'User not found');
+  }
+
   if (req.cookies.sessionId) {
     await logoutUser(req.cookies.sessionId);
   }
