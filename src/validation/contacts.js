@@ -25,6 +25,7 @@ export const postContactSchema = Joi.object({
     'string.base': 'contactType should be a string',
     'any.only': 'contactType should be one of personal, work or home',
   }),
+  photo: Joi.string(),
 });
 
 export const updateContactSchema = Joi.object({
@@ -56,4 +57,5 @@ export const updateContactSchema = Joi.object({
       'string.max': 'contactType should have at most {#limit} characters',
       'any.only': 'contactType should be one of personal, work or home',
     }),
+  photo: Joi.string(),
 });

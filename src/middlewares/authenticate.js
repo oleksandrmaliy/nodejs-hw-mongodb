@@ -24,9 +24,6 @@ export const authenticate = async (req, res, next) => {
   if (!session) {
     next(createHttpError(401, 'Session not found !'));
 
-    console.log(token);
-    // console.log(session);
-
     return;
   }
 
