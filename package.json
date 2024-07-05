@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "build": "npm run build-docs",
+    "build-docs": "redocly bundle --ext json -o docs/swagger.json",
+    "preview-docs": "redocly preview-docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -28,6 +31,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
+    "@redocly/cli": "^1.17.1",
     "eslint": "^9.3.0",
     "globals": "^15.1.0",
     "nodemo": "^1.0.0",
