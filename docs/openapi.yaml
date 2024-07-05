@@ -14,7 +14,7 @@ tags:
     description: Operations about contacts
 servers:
   - url: <http://localhost:3000>
-  - url: https://nodejs-hw-mongodb-qggc.onrender.com
+  - url: https://nodejs-hw-mongodb-5-2kyp.onrender.com
 paths:
   /auth/register:
     post:

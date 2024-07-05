@@ -15,7 +15,7 @@ properties:
   email:
     description: "Contact's email"
     type: string
-    example: 'MEEELLL@ui.com'
+    example: 'alla@ua.com'
   isFavourite:
     description: 'True if contact is favourite'
     type: boolean
@@ -27,7 +27,7 @@ properties:
   photo:
     description: "Link to contact's photo"
     type: string
-    example: 'https://res.cloudinary.com/dxur5yuus/image/upload/v1717748118/lpzhpmvrcnsa83lc25ux.jpg'
+    example: 'https://res.cloudinary.com/qwerty/image/upload/ytrewq/image-123.jpg'
   userId:
     description: Contact's user id (internal application data)
     type: string
